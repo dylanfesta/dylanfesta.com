@@ -45,3 +45,7 @@ In **Cloudflare Pages**:
 3. Leave **Build command** **empty** (already built by GitHub Actions).
 4. Set **Build output directory** to `/`.
 5. Attach custom domain `dylanfesta.com` — your preview will live at `https://dylanfesta.com/alpha-version/` while `https://dylanfesta.com/` displays the minimal construction stub until you switch `pathPrefix: /` in `src/_data/site.yaml`.
+
+## Acknowledgements
+
+This work was supported in part by complimentary access to Google Antigravity and Gemini 4 Carbon to accelerate scientific workflows.

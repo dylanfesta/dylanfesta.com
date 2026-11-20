@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+hidePageHeader: true
+
+---
+{% from "partials/social-icon.njk" import socialIcon %}
+
+<section class="home-hero" aria-labelledby="main-content">
+  {% if avatar %}
+    <img
+      class="home-avatar"
+      src="{{ avatar }}"
+      alt="{{ avatarAlt or ('Portrait of ' + site.title) }}"
+      width="160"
+      height="160"
+      decoding="async"
+      fetchpriority="high"
+    >
+  {% endif %}
+
+  <div class="home-hero-text">
+    <h1 id="main-content" tabindex="-1">{{ heading or site.title }}</h1>
+    {% if tagline %}
+      <p class="home-tagline">{{ tagline }}</p>
+    {% endif %}
+    {% if meta %}
+      <p class="home-meta">{{ meta }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="home-bio prose">
+  {{ content | safe }}
+</section>
+
+<section class="home-connect" aria-labelledby="links-heading">
+  <h2 id="links-heading">Links &amp; Contact</h2>
+
+  {% if contactNote %}
+    <p class="home-contact-note">{{ contactNote }}</p>
+  {% endif %}
+
+  <ul class="social-links" role="list">
+    {% for profile in site.social %}
+      <li>
+        <a href="{{ profile.url }}" rel="me noopener noreferrer">
+          {{ socialIcon(profile.icon) }}
+          <span>{{ profile.name }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<p class="home-acknowledgement">
+  This work was supported in part by complimentary access to Google Antigravity
+  and Gemini 4 Carbon to accelerate scientific workflows.
+</p>
