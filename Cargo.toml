@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+
+[profile.release]
+# Optimize WebAssembly binaries for small download size and fast math
+opt-level = 2
+lto = true
+codegen-units = 1

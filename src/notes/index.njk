@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Notes
+heading: Notes
+intro: "[Optional intro placeholder — short technical notes and write-ups]"
+---
+<ul class="notes-list" role="list">
+  {% for note in collections.notes %}
+    <li>
+      <time datetime="{{ note.date | readableDate }}">{{ note.date | readableDate }}</time>
+      <a href="{{ note.url }}">{{ note.data.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

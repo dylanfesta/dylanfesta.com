@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ site.defaultTheme }}" data-default-theme="{{ site.defaultTheme }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const savedScheme = localStorage.getItem("color-scheme");
+      if (savedScheme === "light" || savedScheme === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = savedScheme;
+      }
+      const savedTheme = localStorage.getItem("site-theme");
+      if (savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {}
+  </script>
+  {% if site.pathPrefix != "/" %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+  <title>{% if title and title != "Home" %}{{ title }} | {{ site.title }}{% else %}{{ site.title }} — {{ site.subtitle }}{% endif %}</title>
+  <link rel="stylesheet" href="/assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="/assets/css/themes.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="module" src="/assets/js/theme.js"></script>
+</head>
+<body>
+  {% include "partials/header.njk" %}
+
+  <main class="site-main">
+    <div class="container">
+      <h1 id="main-content" tabindex="-1">{{ heading or title }}</h1>
+      {% if intro %}
+        <p class="page-intro">{{ intro }}</p>
+      {% endif %}
+      {{ content | safe }}
+    </div>
+  </main>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

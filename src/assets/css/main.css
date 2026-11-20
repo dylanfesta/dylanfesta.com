@@ -1,0 +1,611 @@
+@layer base, theme, layout, components, utilities;
+
+@layer base {
+  html,
+  body,
+  header,
+  nav,
+  main,
+  footer,
+  section,
+  article,
+  aside,
+  div,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  ul,
+  ol,
+  li,
+  figure,
+  blockquote,
+  pre,
+  code,
+  button,
+  select,
+  a,
+  canvas {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    text-align: start;
+  }
+
+  body {
+    margin: 0;
+    min-block-size: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    line-height: 1.25;
+    text-wrap: balance;
+    margin-block: 1.75rem 0.65rem;
+  }
+
+  h1 {
+    font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.25rem);
+    margin-block-start: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.55rem);
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+  }
+
+  p {
+    margin-block: 0 1.1rem;
+  }
+
+  a:any-link {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  :not(pre) > code {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding-inline: 0.3em;
+    padding-block: 0.1em;
+  }
+
+  pre {
+    background-color: var(--surface);
+    border: var(--border-width) var(--border-style) var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  :where(a:any-link, button, select, summary, [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer layout {
+  .container {
+    inline-size: min(100% - 2.5rem, 48rem);
+    margin-inline: auto;
+  }
+
+  main.site-main {
+    flex: 1;
+    padding-block: 2.5rem 3.5rem;
+  }
+
+  .prose {
+    max-inline-size: 65ch;
+  }
+}
+
+@layer components {
+  /* ==========================================================================
+     Responsive Site Header & Popover Navigation
+     ========================================================================== */
+  .site-header {
+    border-block-end: var(--border-width) var(--border-style) var(--border);
+    background-color: var(--bg);
+
+    .header-inner {
+      inline-size: min(100% - 2.5rem, 48rem);
+      margin-inline: auto;
+      padding-block: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .header-inner > * {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .site-brand {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+      min-block-size: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .menu-button,
+    .scheme-toggle {
+      appearance: none;
+      background-color: var(--surface);
+      color: var(--text);
+      border: var(--border-width) var(--border-style) var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      font: inherit;
+      font-size: 0.9rem;
+      min-block-size: 2.25rem;
+      min-inline-size: 2.25rem;
+      padding-inline: 0.65rem;
+      padding-block: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    }
+
+    .menu-button {
+      anchor-name: --menu-button;
+    }
+
+    .site-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem;
+      position: fixed;
+      inset: auto;
+      inset-block-start: 3.75rem;
+      inset-block-start: anchor(--menu-button bottom);
+      inset-inline-end: 1.25rem;
+      inline-size: min(80dvw, 16rem);
+      max-inline-size: calc(100dvw - 2.5rem);
+      block-size: fit-content;
+      max-block-size: calc(100dvh - 5rem);
+      margin-block-start: 0.4rem;
+      overflow: auto;
+      background-color: var(--bg);
+      color: var(--text);
+      border: var(--border-width) var(--border-style) var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+
+      & li + li {
+        margin-block-start: 0.15rem;
+      }
+
+      & a {
+        display: flex;
+        align-items: center;
+        min-block-size: 2.25rem;
+        padding-inline: 0.65rem;
+        padding-block: 0.25rem;
+        color: var(--muted);
+        text-decoration: none;
+        border-radius: var(--radius);
+        border-block-end: 2px solid transparent;
+
+        &:hover {
+          color: var(--text);
+          background-color: var(--surface);
+        }
+
+        &[aria-current="page"] {
+          color: var(--text);
+          font-weight: 600;
+          border-block-end-color: var(--accent);
+        }
+      }
+    }
+
+    .site-menu[popover]:is(:popover-open, .\:popover-open) {
+      display: block;
+    }
+  }
+
+  /* Inline Navigation when header has enough room */
+  .site-header.is-wide {
+    .menu-button {
+      display: none;
+    }
+
+    .site-menu {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      inline-size: auto;
+      max-inline-size: none;
+      block-size: auto;
+      max-block-size: none;
+      overflow: visible;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+
+      & li + li {
+        margin-block-start: 0;
+      }
+
+      & a {
+        border-radius: 0;
+        padding-inline: 0.5rem;
+
+        &:hover {
+          background: transparent;
+          color: var(--accent);
+        }
+      }
+    }
+
+    .site-menu::backdrop {
+      display: none;
+    }
+  }
+
+  .site-header.is-measuring * {
+    transition: none !important;
+  }
+
+  /* ==========================================================================
+     Light/Dark Toggle Icon Visibility (Driven Purely by CSS, No JS Flash)
+     ========================================================================== */
+  .scheme-toggle {
+    .scheme-option-light {
+      display: none;
+    }
+    .scheme-option-dark {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not(:has(> head > meta[name="color-scheme"][content="light"])) .scheme-toggle {
+      .scheme-option-dark {
+        display: none;
+      }
+      .scheme-option-light {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+  }
+
+  :root:has(> head > meta[name="color-scheme"][content="dark"]) .scheme-toggle {
+    .scheme-option-dark {
+      display: none;
+    }
+    .scheme-option-light {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* ==========================================================================
+     Page Headers, Cards, Lists & Publications
+     ========================================================================== */
+  .page-intro {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-block-end: 2rem;
+  }
+
+  .template-notice {
+    background-color: var(--surface);
+    border-inline-start: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    margin-block: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .social-links {
+    list-style: none;
+    padding: 0;
+    margin-block: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+
+    & a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      min-block-size: 2.25rem;
+      padding-inline: 0.75rem;
+      padding-block: 0.25rem;
+      background-color: var(--surface);
+      border: var(--border-width) var(--border-style) var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      text-decoration: none;
+      font-size: 0.92rem;
+
+      &:hover {
+        border-color: var(--accent);
+      }
+    }
+  }
+
+  .pub-list,
+  .card-list,
+  .notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pub-item {
+    padding-block: 1.15rem;
+
+    &:not(:last-child) {
+      border-block-end: 1px solid var(--border);
+    }
+
+    .pub-year {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-block: 0.2rem;
+      color: var(--text);
+    }
+
+    .pub-authors {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-block: 0.15rem;
+    }
+
+    .pub-venue {
+      font-style: italic;
+      font-size: 0.92rem;
+      margin-block: 0.15rem;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-block-start: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+    }
+  }
+
+  .card-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .card {
+    background-color: var(--surface);
+    border: var(--border-width) var(--border-style) var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.15rem 1.25rem;
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-block-end: 0.4rem;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding-inline: 0.45rem;
+      padding-block: 0.1rem;
+      background-color: var(--bg);
+    }
+
+    & p:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  .notes-list li {
+    padding-block: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem;
+
+    &:not(:last-child) {
+      border-block-end: 1px solid var(--border);
+    }
+
+    & time {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--muted);
+      min-inline-size: 6.5rem;
+    }
+  }
+
+  /* ==========================================================================
+     Math & WebAssembly Demo Stage
+     ========================================================================== */
+  .math-display {
+    overflow-x: auto;
+    padding-block: 0.5rem;
+    margin-block: 0.75rem;
+  }
+
+  .demo-stage {
+    margin-block: 1.5rem 2rem;
+    border: var(--border-width) var(--border-style) var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    background-color: var(--surface);
+    overflow: hidden;
+
+    .demo-canvas-wrap {
+      position: relative;
+      inline-size: 100%;
+      block-size: 19rem;
+    }
+
+    & canvas {
+      display: block;
+      inline-size: 100% !important;
+      block-size: 100% !important;
+      touch-action: none;
+    }
+
+    .demo-status {
+      margin: 0;
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-block-start: 1px solid var(--border);
+    }
+  }
+
+  /* ==========================================================================
+     Site Footer & Subtle Live Theme Switcher
+     ========================================================================== */
+  .site-footer {
+    border-block-start: var(--border-width) var(--border-style) var(--border);
+    padding-block: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+
+    .footer-inner {
+      inline-size: min(100% - 2.5rem, 48rem);
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .theme-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+
+      & select {
+        font: inherit;
+        background-color: var(--surface);
+        color: var(--text);
+        border: var(--border-width) var(--border-style) var(--border);
+        border-radius: var(--radius);
+        min-block-size: 2rem;
+        padding-inline: 0.5rem;
+        padding-block: 0.15rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@layer utilities {
+  .visually-hidden:where(:not(:focus-within, :active)) {
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .skip-link:is(:focus-within, :active) {
+    position: fixed;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    z-index: 100;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.85rem;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; {{ site.title }}</span>
+
+    {% if site.showThemePicker %}
+      <div class="theme-picker">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+          {% for t in site.themes %}
+            <option value="{{ t.id }}"{% if t.id == site.defaultTheme %} selected{% endif %}>{{ t.label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    {% endif %}
+  </div>
+</footer>

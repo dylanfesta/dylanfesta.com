@@ -1,0 +1,55 @@
+title: Dylan Festa
+subtitle: Independent Researcher
+domain: https://dylanfesta.com
+
+# Set to "/alpha-version/" to publish your draft at dylanfesta.com/alpha-version/
+# while keeping dylanfesta.com/ on a minimal "under construction" stub.
+# Change to "/" when ready to launch at the root domain!
+pathPrefix: /alpha-version/
+
+# Default theme loaded for visitors.
+# Options: academic | swiss | notebook | nordic | cringe
+defaultTheme: academic
+
+# Show the live theme switcher in the footer so you can test and compare themes
+showThemePicker: true
+
+themes:
+  - id: academic
+    label: Academic Paper
+  - id: swiss
+    label: Swiss Sans
+  - id: notebook
+    label: Lab Notebook
+  - id: nordic
+    label: Nordic Slate
+  - id: cringe
+    label: Violent 90s (Fun)
+
+nav:
+  - label: Home
+    url: /
+  - label: Research
+    url: /research/
+  - label: Publications
+    url: /publications/
+  - label: Code
+    url: /code/
+  - label: Demos
+    url: /demos/
+  - label: Notes
+    url: /notes/
+
+social:
+  - name: ORCID
+    url: https://orcid.org/0000-0003-3803-1542
+    handle: 0000-0003-3803-1542
+  - name: GitHub
+    url: https://github.com/dylanfesta
+    handle: "@dylanfesta"
+  - name: Mastodon
+    url: https://neuromatch.social/@dylanfesta
+    handle: "@dylanfesta@neuromatch.social"
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/dylanfesta/
+    handle: in/dylanfesta

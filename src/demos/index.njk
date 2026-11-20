@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: Demos
+heading: Interactive Demos
+intro: "Self-contained simulations compiled from Rust to WebAssembly."
+---
+<ul class="card-list" role="list">
+  {% for demo in collections.demos %}
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="{{ demo.url }}">{{ demo.data.title }}</a></h2>
+        <span class="badge">{{ demo.data.badge or "Rust + Wasm" }}</span>
+      </div>
+      <p>{{ demo.data.summary }}</p>
+    </li>
+  {% endfor %}
+</ul>

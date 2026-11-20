@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+<article class="prose">
+  {% if date %}
+    <p class="page-intro"><time datetime="{{ date | readableDate }}">{{ date | readableDate }}</time></p>
+  {% endif %}
+  {{ content | safe }}
+</article>

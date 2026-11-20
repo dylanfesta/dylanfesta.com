@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Code
+heading: Code & Software
+intro: "[Optional intro placeholder — e.g., Selected open-source packages and research code]"
+---
+<div class="template-notice prose">
+  <strong>[Template placeholder]</strong> Edit descriptions or add repositories in <code>src/_data/code.yaml</code>.
+</div>
+
+<ul class="card-list" role="list">
+  {% for repo in code %}
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="{{ repo.url }}">{{ repo.name }}</a></h2>
+        {% if repo.language %}
+          <span class="badge">{{ repo.language }}</span>
+        {% endif %}
+      </div>
+      <p>{{ repo.description }}</p>
+    </li>
+  {% endfor %}
+</ul>

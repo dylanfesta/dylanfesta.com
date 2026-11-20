@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+title: Publications
+heading: Publications
+intro: "[Optional note — e.g., Curated list; full record on ORCID]"
+---
+<div class="template-notice prose">
+  <strong>[Template placeholder]</strong> Curate, reorder, or annotate entries in <code>src/_data/publications.yaml</code>.
+</div>
+
+<ul class="pub-list" role="list">
+  {% for pub in publications %}
+    <li class="pub-item">
+      <div class="pub-year">{{ pub.year }}</div>
+      <div class="pub-title">{{ pub.title }}</div>
+      <div class="pub-authors">{{ pub.authors }}</div>
+      <div class="pub-venue">{{ pub.venue }}</div>
+      {% if pub.note %}
+        <div class="pub-authors">{{ pub.note }}</div>
+      {% endif %}
+      {% if pub.doi or pub.pdf or pub.code or pub.demo %}
+        <div class="pub-links">
+          {% if pub.doi %}<a href="{{ pub.doi }}">DOI</a>{% endif %}
+          {% if pub.pdf %}<a href="{{ pub.pdf }}">PDF</a>{% endif %}
+          {% if pub.code %}<a href="{{ pub.code }}">Code</a>{% endif %}
+          {% if pub.demo %}<a href="{{ pub.demo }}">Demo</a>{% endif %}
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

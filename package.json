@@ -1,0 +1,20 @@
+{
+  "name": "dylanfesta-com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal website of Dylan Festa (dylanfesta.com) built with Eleventy and Rust/WebAssembly",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build:eleventy": "eleventy",
+    "build:wasm": "node scripts/build-wasm.mjs",
+    "build": "npm run build:eleventy",
+    "build:all": "npm run build:wasm && npm run build:eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@oddbird/popover-polyfill": "^0.6.1",
+    "js-yaml": "^4.1.0",
+    "katex": "^0.16.22"
+  }
+}

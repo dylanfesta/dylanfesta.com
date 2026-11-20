@@ -1,0 +1,27 @@
+# Manually curated open-source repositories & tools (seeded from github.com/dylanfesta).
+# Edit descriptions or add links/tags freely.
+
+- name: HawkesSimulator.jl
+  language: Julia
+  url: https://github.com/dylanfesta/HawkesSimulator.jl
+  description: "[Placeholder description] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Simulation of multi-dimensional Hawkes processes."
+
+- name: SpikingRNNs.jl
+  language: Julia
+  url: https://github.com/dylanfesta/SpikingRNNs.jl
+  description: "[Placeholder description] Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Spiking recurrent neural network models."
+
+- name: ThinningAndShift.jl
+  language: Julia
+  url: https://github.com/dylanfesta/ThinningAndShift.jl
+  description: "[Placeholder description] Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Generative spike-train models."
+
+- name: GSMAnalytical.jl
+  language: Julia
+  url: https://github.com/dylanfesta/GSMAnalytical.jl
+  description: "[Placeholder description] Excepteur sint occaecat cupidatat non proident. Analytical and semi-analytical Gaussian Scale Mixture expressions."
+
+- name: SSNVariability.jl
+  language: Julia
+  url: https://github.com/dylanfesta/SSNVariability.jl
+  description: "[Placeholder description] Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Stabilized supralinear network variability."

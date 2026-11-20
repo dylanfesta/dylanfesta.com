@@ -1,0 +1,32 @@
+# Manually curated publications list (seeded from ORCID 0000-0003-3803-1542).
+# Add, reorder, or edit entries freely; optional links (doi, pdf, code, demo) render automatically.
+
+- title: Heterogeneous plasticity rules generate diverse structures in recurrent networks
+  authors: Claudia Cusseddu, Dylan Festa, Christoph Miehl, Julijana Gjorgjieva
+  venue: bioRxiv preprint
+  year: 2026
+  doi: https://doi.org/10.64898/2026.10.26.760407
+  note: "[Optional one-line note or summary placeholder]"
+
+- title: Structured stabilization in recurrent neural circuits through inhibitory synaptic plasticity
+  authors: Dylan Festa, Claudia Cusseddu, Julijana Gjorgjieva
+  venue: eLife (Reviewed Preprint)
+  year: 2025
+  doi: https://doi.org/10.7554/eLife.111666.1
+
+- title: Adaptation of Drosophila larva foraging in response to changes in food resources
+  authors: Marina E. Wosniack, Dylan Festa, Nan Hu, Julijana Gjorgjieva, Jimena Berni
+  venue: eLife, 11, e75826
+  year: 2022
+  doi: https://doi.org/10.7554/eLife.75826
+
+- title: Neuronal variability reflects probabilistic inference tuned to natural image statistics
+  authors: Dylan Festa, Amir Aschner, Aida Davila, Adam Kohn, Ruben Coen-Cagli
+  venue: Nature Communications, 12, 3635
+  year: 2021
+  doi: https://doi.org/10.1038/s41467-021-23838-x
+
+- title: Analog Memories in a Balanced Rate-Based Network of E-I Neurons
+  authors: Dylan Festa, Guillaume Hennequin, Máté Lengyel
+  venue: Advances in Neural Information Processing Systems (NeurIPS)
+  year: 2014

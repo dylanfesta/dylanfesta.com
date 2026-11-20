@@ -1,0 +1,15 @@
+# Dependencies & build outputs
+node_modules/
+_site/
+target/
+
+# Compiled WebAssembly bundles (built locally via npm run build:wasm or in CI)
+src/assets/wasm/
+
+# Archived previous website attempts (kept locally only)
+OldAttempts/
+
+# Editor & OS files
+.DS_Store
+*~
+*.swp

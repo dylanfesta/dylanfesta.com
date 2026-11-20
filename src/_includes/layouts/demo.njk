@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+<figure class="demo-stage">
+  <div class="demo-canvas-wrap">
+    <canvas id="{{ canvasId or 'demo-canvas' }}" aria-label="{{ title }} interactive canvas"></canvas>
+  </div>
+  <figcaption id="demo-status" class="demo-status">Loading WebAssembly simulation…</figcaption>
+</figure>
+
+<div class="prose">
+  {{ content | safe }}
+</div>
+
+<script type="module">
+  const statusEl = document.getElementById("demo-status");
+  const moduleUrl = "{{ ('/assets/wasm/' + wasmCrate + '/' + wasmModule + '.js') | htmlBaseUrl }}";
+
+  try {
+    const mod = await import(moduleUrl);
+    await mod.default();
+    statusEl.textContent = "Running in Rust + WebAssembly (egui)";
+    await mod.start_demo("{{ canvasId or 'demo-canvas' }}");
+  } catch (err) {
+    // eframe WebRunner resolves/throws control flow exceptions on stop in some versions; ignore benign ones
+    if (!String(err).includes("Using exceptions for control flow")) {
+      console.error(err);
+      statusEl.textContent =
+        "WebAssembly bundle not built yet — run `npm run build:wasm` locally.";
+    }
+  }
+</script>
