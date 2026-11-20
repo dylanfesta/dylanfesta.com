@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="academic" data-default-theme="academic">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const savedScheme = localStorage.getItem("color-scheme");
+      if (savedScheme === "light" || savedScheme === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = savedScheme;
+      }
+      const savedTheme = localStorage.getItem("site-theme");
+      if (savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {}
+  </script>
+  
+    <meta name="robots" content="noindex">
+  
+  <title>Code | Dylan Festa</title>
+  <link rel="stylesheet" href="/alpha-version/assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="/alpha-version/assets/css/themes.css">
+  <link rel="stylesheet" href="/alpha-version/assets/css/main.css">
+  <script type="module" src="/alpha-version/assets/js/theme.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+  <div class="header-inner">
+    
+      <a class="site-brand" href="/alpha-version/">Dylan Festa</a>
+    
+
+    <div class="header-controls">
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          
+            
+            <li>
+              <a href="/alpha-version/">Home</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/research/">Research</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/publications/">Publications</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/code/" aria-current="page">Code</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/demos/">Demos</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/notes/">Notes</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <button id="scheme-toggle" class="scheme-toggle" type="button">
+        <span class="scheme-option-dark">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="scheme-option-light">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    <div class="container">
+      
+        <h1 id="main-content" tabindex="-1">Code &amp; Software</h1>
+        
+          <p class="page-intro">[Optional intro placeholder — e.g., Selected open-source packages and research code]</p>
+        
+      
+      <div class="template-notice prose">
+  <strong>[Template placeholder]</strong> Edit descriptions or add repositories in <code>src/_data/code.yaml</code>.
+</div>
+
+<ul class="card-list" role="list">
+  
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="https://github.com/dylanfesta/HawkesSimulator.jl">HawkesSimulator.jl</a></h2>
+        
+          <span class="badge">Julia</span>
+        
+      </div>
+      <p>[Placeholder description] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Simulation of multi-dimensional Hawkes processes.</p>
+    </li>
+  
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="https://github.com/dylanfesta/SpikingRNNs.jl">SpikingRNNs.jl</a></h2>
+        
+          <span class="badge">Julia</span>
+        
+      </div>
+      <p>[Placeholder description] Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Spiking recurrent neural network models.</p>
+    </li>
+  
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="https://github.com/dylanfesta/ThinningAndShift.jl">ThinningAndShift.jl</a></h2>
+        
+          <span class="badge">Julia</span>
+        
+      </div>
+      <p>[Placeholder description] Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Generative spike-train models.</p>
+    </li>
+  
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="https://github.com/dylanfesta/GSMAnalytical.jl">GSMAnalytical.jl</a></h2>
+        
+          <span class="badge">Julia</span>
+        
+      </div>
+      <p>[Placeholder description] Excepteur sint occaecat cupidatat non proident. Analytical and semi-analytical Gaussian Scale Mixture expressions.</p>
+    </li>
+  
+    <li class="card">
+      <div class="card-header">
+        <h2 class="card-title"><a href="https://github.com/dylanfesta/SSNVariability.jl">SSNVariability.jl</a></h2>
+        
+          <span class="badge">Julia</span>
+        
+      </div>
+      <p>[Placeholder description] Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Stabilized supralinear network variability.</p>
+    </li>
+  
+</ul>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <span>dylanfesta.com</span>
+
+    
+      <div class="theme-picker">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+          
+            <option value="academic" selected="">Academic Paper</option>
+          
+            <option value="swiss">Swiss Sans</option>
+          
+            <option value="notebook">Lab Notebook</option>
+          
+            <option value="nordic">Nordic Slate</option>
+          
+            <option value="cringe">Violent 90s (Fun)</option>
+          
+        </select>
+      </div>
+    
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="academic" data-default-theme="academic">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const savedScheme = localStorage.getItem("color-scheme");
+      if (savedScheme === "light" || savedScheme === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = savedScheme;
+      }
+      const savedTheme = localStorage.getItem("site-theme");
+      if (savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {}
+  </script>
+  
+    <meta name="robots" content="noindex">
+  
+  <title>Publications | Dylan Festa</title>
+  <link rel="stylesheet" href="/alpha-version/assets/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="/alpha-version/assets/css/themes.css">
+  <link rel="stylesheet" href="/alpha-version/assets/css/main.css">
+  <script type="module" src="/alpha-version/assets/js/theme.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+  <div class="header-inner">
+    
+      <a class="site-brand" href="/alpha-version/">Dylan Festa</a>
+    
+
+    <div class="header-controls">
+      <nav class="site-nav" aria-label="Primary">
+        <button class="menu-button" type="button" popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          
+            
+            <li>
+              <a href="/alpha-version/">Home</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/research/">Research</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/publications/" aria-current="page">Publications</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/code/">Code</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/demos/">Demos</a>
+            </li>
+          
+            
+            <li>
+              <a href="/alpha-version/notes/">Notes</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <button id="scheme-toggle" class="scheme-toggle" type="button">
+        <span class="scheme-option-dark">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="scheme-option-light">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+  <main class="site-main">
+    <div class="container">
+      
+        <h1 id="main-content" tabindex="-1">Publications</h1>
+        
+          <p class="page-intro">[Optional note — e.g., Curated list; full record on ORCID]</p>
+        
+      
+      <div class="template-notice prose">
+  <strong>[Template placeholder]</strong> Curate, reorder, or annotate entries in <code>src/_data/publications.yaml</code>.
+</div>
+
+<ul class="pub-list" role="list">
+  
+    <li class="pub-item">
+      <div class="pub-year">2026</div>
+      <div class="pub-title">Heterogeneous plasticity rules generate diverse structures in recurrent networks</div>
+      <div class="pub-authors">Claudia Cusseddu, Dylan Festa, Christoph Miehl, Julijana Gjorgjieva</div>
+      <div class="pub-venue">bioRxiv preprint</div>
+      
+        <div class="pub-authors">[Optional one-line note or summary placeholder]</div>
+      
+      
+        <div class="pub-links">
+          <a href="https://doi.org/10.64898/2026.10.26.760407">DOI</a>
+          
+          
+          
+        </div>
+      
+    </li>
+  
+    <li class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-title">Structured stabilization in recurrent neural circuits through inhibitory synaptic plasticity</div>
+      <div class="pub-authors">Dylan Festa, Claudia Cusseddu, Julijana Gjorgjieva</div>
+      <div class="pub-venue">eLife (Reviewed Preprint)</div>
+      
+      
+        <div class="pub-links">
+          <a href="https://doi.org/10.7554/eLife.111666.1">DOI</a>
+          
+          
+          
+        </div>
+      
+    </li>
+  
+    <li class="pub-item">
+      <div class="pub-year">2022</div>
+      <div class="pub-title">Adaptation of Drosophila larva foraging in response to changes in food resources</div>
+      <div class="pub-authors">Marina E. Wosniack, Dylan Festa, Nan Hu, Julijana Gjorgjieva, Jimena Berni</div>
+      <div class="pub-venue">eLife, 11, e75826</div>
+      
+      
+        <div class="pub-links">
+          <a href="https://doi.org/10.7554/eLife.75826">DOI</a>
+          
+          
+          
+        </div>
+      
+    </li>
+  
+    <li class="pub-item">
+      <div class="pub-year">2021</div>
+      <div class="pub-title">Neuronal variability reflects probabilistic inference tuned to natural image statistics</div>
+      <div class="pub-authors">Dylan Festa, Amir Aschner, Aida Davila, Adam Kohn, Ruben Coen-Cagli</div>
+      <div class="pub-venue">Nature Communications, 12, 3635</div>
+      
+      
+        <div class="pub-links">
+          <a href="https://doi.org/10.1038/s41467-021-23838-x">DOI</a>
+          
+          
+          
+        </div>
+      
+    </li>
+  
+    <li class="pub-item">
+      <div class="pub-year">2014</div>
+      <div class="pub-title">Analog Memories in a Balanced Rate-Based Network of E-I Neurons</div>
+      <div class="pub-authors">Dylan Festa, Guillaume Hennequin, Máté Lengyel</div>
+      <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS)</div>
+      
+      
+    </li>
+  
+</ul>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <span>dylanfesta.com</span>
+
+    
+      <div class="theme-picker">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+          
+            <option value="academic" selected="">Academic Paper</option>
+          
+            <option value="swiss">Swiss Sans</option>
+          
+            <option value="notebook">Lab Notebook</option>
+          
+            <option value="nordic">Nordic Slate</option>
+          
+            <option value="cringe">Violent 90s (Fun)</option>
+          
+        </select>
+      </div>
+    
+  </div>
+</footer>
+
+</body>
+</html>

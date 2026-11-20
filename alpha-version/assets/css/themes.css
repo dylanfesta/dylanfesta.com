@@ -1,0 +1,216 @@
+@layer base, theme, layout, components, utilities;
+
+@layer theme {
+  /* ==========================================================================
+     1. Theme Definitions (Edit or add a block below to customize!)
+     Each theme defines light/dark color pairs plus typography & border tokens.
+     ========================================================================== */
+
+  /* Theme 1 (Default): Academic Paper — Tufte & LaTeX-inspired serif */
+  :root,
+  :root[data-theme="academic"] {
+    --bg-light: #fbf9f4;
+    --bg-dark: #14171c;
+    --surface-light: #f3efe6;
+    --surface-dark: #1d2129;
+    --text-light: #1f1e1b;
+    --text-dark: #eae6df;
+    --muted-light: #5c584f;
+    --muted-dark: #a9a49a;
+    --accent-light: #8b2635;
+    --accent-dark: #f29b82;
+    --border-light: #dcd5c7;
+    --border-dark: #333946;
+
+    --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --font-heading: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --heading-weight: 600;
+    --radius: 0.2rem;
+    --border-width: 1px;
+    --border-style: solid;
+    --card-shadow: none;
+  }
+
+  /* Theme 2: Crisp Swiss Sans — Clean minimalist research-lab look */
+  :root[data-theme="swiss"] {
+    --bg-light: #ffffff;
+    --bg-dark: #0f1115;
+    --surface-light: #f5f7fa;
+    --surface-dark: #181c23;
+    --text-light: #111318;
+    --text-dark: #f1f3f7;
+    --muted-light: #525866;
+    --muted-dark: #9ea6b5;
+    --accent-light: #0047ab;
+    --accent-dark: #75b4ff;
+    --border-light: #dde2ea;
+    --border-dark: #2c3340;
+
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --heading-weight: 700;
+    --radius: 0.35rem;
+    --border-width: 1px;
+    --border-style: solid;
+    --card-shadow: none;
+  }
+
+  /* Theme 3: Technical Mono / Lab Notebook — Forest & amber accents */
+  :root[data-theme="notebook"] {
+    --bg-light: #f4f6f1;
+    --bg-dark: #111613;
+    --surface-light: #e9ede4;
+    --surface-dark: #19211c;
+    --text-light: #18201a;
+    --text-dark: #e4ebe5;
+    --muted-light: #4c594f;
+    --muted-dark: #9cb0a1;
+    --accent-light: #165b36;
+    --accent-dark: #f0b45b;
+    --border-light: #c6d0c1;
+    --border-dark: #2f3d33;
+
+    --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-heading: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --heading-weight: 600;
+    --radius: 0rem;
+    --border-width: 1px;
+    --border-style: solid;
+    --card-shadow: none;
+  }
+
+  /* Theme 4: Nordic Slate — Calm cool blue-grays */
+  :root[data-theme="nordic"] {
+    --bg-light: #f2f5f8;
+    --bg-dark: #1c212b;
+    --surface-light: #e6ecf2;
+    --surface-dark: #252c39;
+    --text-light: #1e2530;
+    --text-dark: #e5e9f0;
+    --muted-light: #515d6e;
+    --muted-dark: #a2aebe;
+    --accent-light: #24567e;
+    --accent-dark: #88c0d0;
+    --border-light: #cfd8e3;
+    --border-dark: #384254;
+
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --heading-weight: 600;
+    --radius: 0.5rem;
+    --border-width: 1px;
+    --border-style: solid;
+    --card-shadow: none;
+  }
+
+  /* Theme 5: Violent 90s — Comic Sans, thicc Arial Black & electric yellow! */
+  :root[data-theme="cringe"] {
+    --bg-light: #fff200;
+    --bg-dark: #190030;
+    --surface-light: #ffffa8;
+    --surface-dark: #2d0054;
+    --text-light: #000000;
+    --text-dark: #ffff00;
+    --muted-light: #2b0033;
+    --muted-dark: #ff99ff;
+    --accent-light: #a8006b;
+    --accent-dark: #00ffd5;
+    --border-light: #000000;
+    --border-dark: #ffff00;
+
+    --font-body: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive, sans-serif;
+    --font-heading: "Arial Black", Impact, Gadget, sans-serif;
+    --font-mono: "Courier New", Courier, monospace;
+    --heading-weight: 900;
+    --radius: 0rem;
+    --border-width: 3px;
+    --border-style: solid;
+    --card-shadow: 4px 4px 0 var(--border);
+  }
+
+  /* ==========================================================================
+     2. Color-Scheme Resolution (System Default + User Override)
+     ========================================================================== */
+  :root {
+    color-scheme: light dark;
+
+    /* Fallback token resolution for older browsers without light-dark() */
+    --bg: var(--bg-light);
+    --surface: var(--surface-light);
+    --text: var(--text-light);
+    --muted: var(--muted-light);
+    --accent: var(--accent-light);
+    --border: var(--border-light);
+
+    @media (prefers-color-scheme: dark) {
+      --bg: var(--bg-dark);
+      --surface: var(--surface-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --accent: var(--accent-dark);
+      --border: var(--border-dark);
+    }
+
+    &:has(> head > meta[name="color-scheme"][content="dark"]) {
+      color-scheme: dark;
+      --bg: var(--bg-dark);
+      --surface: var(--surface-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --accent: var(--accent-dark);
+      --border: var(--border-dark);
+    }
+
+    &:has(> head > meta[name="color-scheme"][content="light"]) {
+      color-scheme: light;
+      --bg: var(--bg-light);
+      --surface: var(--surface-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --accent: var(--accent-light);
+      --border: var(--border-light);
+    }
+
+    @supports (color: light-dark(white, black)) {
+      --bg: light-dark(var(--bg-light), var(--bg-dark));
+      --surface: light-dark(var(--surface-light), var(--surface-dark));
+      --text: light-dark(var(--text-light), var(--text-dark));
+      --muted: light-dark(var(--muted-light), var(--muted-dark));
+      --accent: light-dark(var(--accent-light), var(--accent-dark));
+      --border: light-dark(var(--border-light), var(--border-dark));
+    }
+
+    --scrollbar-track: var(--surface);
+    --scrollbar-thumb: var(--muted);
+
+    accent-color: var(--accent);
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+    @media (forced-colors: active) {
+      --bg: Canvas;
+      --surface: Canvas;
+      --text: CanvasText;
+      --muted: GrayText;
+      --accent: LinkText;
+      --border: CanvasText;
+      --card-shadow: none;
+    }
+  }
+
+  @supports not (scrollbar-color: auto) {
+    :root::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    :root::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+    }
+    :root::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
+  }
+}
